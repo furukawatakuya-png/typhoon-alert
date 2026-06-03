@@ -18,3 +18,12 @@ jobs:
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         timeout-minutes: 5
+      - name: state.jsonを保存
+        run: |
+          git config user.name "typhoon-bot"
+          git config user.email "bot@example.com"
+          git add state.json
+          git diff --staged --quiet || git commit -m "update state"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
