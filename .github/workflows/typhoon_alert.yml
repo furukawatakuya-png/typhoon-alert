@@ -16,5 +16,5 @@ jobs:
       - name: 気象庁チェック＆Slack通知
         run: python typhoon_alert.py
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         timeout-minutes: 5
